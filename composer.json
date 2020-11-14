@@ -1,0 +1,29 @@
+{
+  "name": "jncinet/qihucms-present",
+  "description": "qihucms present.",
+  "keywords": [
+    "qihucms",
+    "present"
+  ],
+  "homepage": "https://www.qihucms.com",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "zhangye",
+      "email": "y@qilephp.com"
+    }
+  ],
+  "require": {},
+  "autoload": {
+    "psr-4": {
+      "Qihucms\\Present\\": "src/"
+    }
+  },
+  "extra": {
+    "laravel": {
+      "providers": [
+        "Qihucms\\Present\\PresentServiceProvider"
+      ]
+    }
+  }
+}
