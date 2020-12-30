@@ -13,9 +13,11 @@ class PresentServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->app->singleton('present', function () {
+        $this->app->singleton(Present::class, function () {
             return new Present();
         });
+
+        $this->app->alias(Present::class, 'qh-present');
     }
 
     /**

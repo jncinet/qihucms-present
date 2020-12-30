@@ -6,6 +6,20 @@ $ composer require jncinet/qihucms-present
 
 ## 使用
 
+### 数据迁移
+```shell
+$ php artisan migrate
+```
+
+### 发布资源
+```shell
+$ php artisan vendor:publish --provider="Qihucms\Present\PresentServiceProvider"
+```
+
+## 后台菜单
++ 礼物列表 `present/presents`
++ 礼物订单 `present/orders`
+
 ### 路由能参数说明
 
 #### 礼物列表
@@ -102,3 +116,35 @@ int $to_user_id （必填）收礼会员ID
 // 创建订单
 Qihucms\Present\Events\GivingPresent
 ```
+
+## 数据库
+### 礼物表：presents
+| Field             | Type      | Length    | AllowNull | Default   | Comment   |
+| :----             | :----     | :----     | :----     | :----     | :----     |
+| id                | bigint    |           |           |           |           |
+| name              | varchar   | 55        |           |           | 礼物名称   |
+| thumbnail         | varchar   | 255       |  Y        | NULL      | 礼物图标   |
+| image             | varchar   | 255       |  Y        | NULL      | 礼物大图   |
+| animation         | varchar   | 255       |  Y        | NULL      | 礼物动效   |
+| pay_currency_type_id | bigint |           |           |           | 支付货币类型 |
+| pay_amount        | decimal   |           |           | 0.00      | 支付数额   |
+| unit              | varchar   | 15        |           |           | 计数单位   |
+| exchange_currency_type_id | bigint |      |           |           | 兑换货币类型 |
+| exchange_amount   | decimal   |           |           | 0.00      | 兑换数额   |
+| exchange_exp      | int       |           |           | 0         | 兑换经验   |
+| is_broadcast      | tinyint   |           |           | 0         | 是否广播   |
+| status            | tinyint   |           |           | 0         | 状态      |
+| sort              | int       |           |           | 0         | 排序      |
+| created_at        | timestamp |           | Y         | NULL      | 创建时间   |
+| updated_at        | timestamp |           | Y         | NULL      | 更新时间   |
+
+### 礼物订单表：present_orders
+| Field             | Type      | Length    | AllowNull | Default   | Comment   |
+| :----             | :----     | :----     | :----     | :----     | :----     |
+| id                | bigint    |           |           |           |           |
+| user_id           | bigint    |           |           |           | 送礼会员id |
+| to_user_id        | bigint    |           |           |           | 收礼会员id |
+| present_id        | bigint    |           |           |           | 礼物id    |
+| status            | tinyint   |           |           | 0         | 状态      |
+| created_at        | timestamp |           | Y         | NULL      | 创建时间   |
+| updated_at        | timestamp |           | Y         | NULL      | 更新时间   |

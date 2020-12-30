@@ -3,17 +3,8 @@ return [
     'id' => '礼物ID',
     'name' => '礼物名称',
     'thumbnail' => '礼物图标',
-    'image' => '动效大图',
-    'animation' => [
-        'label' => '动效',
-        'value' => [
-            'no' => '无',
-            'up' => '向上滑动',
-            'down' => '向下滑动',
-            'left' => '向左滑动',
-            'right' => '向右滑动',
-        ]
-    ],
+    'image' => '礼物大图',
+    'animation' => '礼物动效',
     'pay_currency_type_id' => '支付货币类型',
     'pay_amount' => '支付数额',
     'unit' => '礼物单位',

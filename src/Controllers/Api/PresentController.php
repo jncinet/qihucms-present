@@ -2,7 +2,7 @@
 
 namespace Qihucms\Present\Controllers\Api;
 
-use App\Http\Controllers\Api\ApiController;
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Qihucms\Present\Present;
@@ -11,7 +11,7 @@ use Qihucms\Present\Resources\GivingOrderCollection;
 use Qihucms\Present\Resources\GotOrderCollection;
 use Qihucms\Present\Resources\PresentCollection;
 
-class PresentController extends ApiController
+class PresentController extends Controller
 {
     protected $present;
 

@@ -1,6 +1,6 @@
 <?php
 
 return [
-    'giving_success' => 'Gift giving success.',
-    'giving_fail' => 'Gift giving failure.'
+    'giving_success' => '送出成功',
+    'giving_fail' => '送出失败'
 ];

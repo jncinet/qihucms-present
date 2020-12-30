@@ -72,12 +72,12 @@ class Present
             $resultExpend = Currency::expend($data['user_id'], $present->pay_currency_type_id,
                 $present->pay_amount, 'giving_present', $result->id);
 
-            if ($resultExpend === true) {
+            if ($resultExpend === 100) {
                 // $data['to_user_id'] 入账
                 $resultEntry = Currency::entry($data['to_user_id'], $present->exchange_currency_type_id,
                     $present->exchange_amount, 'got_present', $result->id);
 
-                if ($resultEntry !== true) {
+                if ($resultEntry !== 100) {
                     $result->status = 2;
                 }
             } else {

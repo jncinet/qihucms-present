@@ -5,13 +5,13 @@ use Illuminate\Routing\Router;
 // 接口
 Route::group([
     'namespace' => 'Qihucms\Present\Controllers\Api',
-    'prefix' => 'present',
+    'prefix' => config('qihu.present_prefix', 'present'),
     'middleware' => ['api'],
-    'as' => 'api.'
+    'as' => 'api.present.'
 ], function (Router $router) {
-    $router->get('presents', 'PresentController@presents')->name('present.index');
-    $router->get('orders', 'PresentController@orders')->name('present.order');
-    $router->post('givings', 'PresentController@giving')->name('present.givings');
+    $router->get('presents', 'PresentController@presents')->name('index');
+    $router->get('orders', 'PresentController@orders')->name('order');
+    $router->post('givings', 'PresentController@giving')->name('givings');
 });
 
 // 后台

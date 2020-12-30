@@ -67,12 +67,11 @@ class PresentController extends Controller
         $show->field('id', __('present::present.id'));
         $show->field('name', __('present::present.name'));
         $show->field('thumbnail', __('present::present.thumbnail'))->image();
-        $show->field('image', __('present::present.image'))->file();
-        $show->field('animation', __('present::present.animation.label'))
-            ->using(__('present::present.animation.value'));
+        $show->field('image', __('present::present.image'))->image();
+        $show->field('animation', __('present::present.animation'))->file();
         $show->field('pay_currency_type_id', __('present::present.pay_currency_type_id'))
             ->as(function () {
-                return $this->pay_currency_type ? $this->pay_currency_type->name : '货币类型已删除';
+                return $this->pay_currency_type ? $this->pay_currency_type->name : '';
             });
         $show->field('pay_amount', __('present::present.pay_amount'));
         $show->field('unit', __('present::present.unit'));
@@ -111,9 +110,10 @@ class PresentController extends Controller
             ->removable()
             ->uniqueName()
             ->move('present/image');
-        $form->select('animation', __('present::present.animation.label'))
-            ->default('no')
-            ->options(__('present::present.animation.value'));
+        $form->file('animation', __('present::present.animation'))
+            ->removable()
+            ->uniqueName()
+            ->move('present/animation');
         $form->select('pay_currency_type_id', __('present::present.pay_currency_type_id'))
             ->options(CurrencyType::all()->pluck('name', 'id'));
         $form->currency('pay_amount', __('present::present.pay_amount'))

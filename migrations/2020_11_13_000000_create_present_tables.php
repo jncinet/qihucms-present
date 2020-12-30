@@ -18,12 +18,12 @@ class CreatePresentTables extends Migration
             $table->string('name', 55)->comment('礼物名称');
             $table->string('thumbnail')->nullable()->comment('礼物图标');
             $table->string('image')->nullable()->comment('礼物大图');
-            $table->string('animation', 26)->nullable()->comment('动效');
+            $table->string('animation')->nullable()->comment('礼物动效');
             $table->unsignedBigInteger('pay_currency_type_id')->index()->comment('支付货币类型');
-            $table->decimal('pay_amount')->default(0)->comment('支付数额');
+            $table->unsignedDecimal('pay_amount')->default(0)->comment('支付数额');
             $table->string('unit', 15)->default('件')->comment('计数单位');
             $table->unsignedBigInteger('exchange_currency_type_id')->index()->comment('兑换货币类型');
-            $table->decimal('exchange_amount')->default(0)->comment('兑换数额');
+            $table->unsignedDecimal('exchange_amount')->default(0)->comment('兑换数额');
             $table->unsignedInteger('exchange_exp')->default(0)->comment('兑换经验');
             $table->boolean('is_broadcast')->default(0)->comment('是否广播');
             $table->boolean('status')->default(0)->comment('状态');

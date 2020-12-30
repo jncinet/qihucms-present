@@ -40,7 +40,7 @@ class PresentOrderController extends Controller
             $filter->like('user.username', __('present::order.user_id'));
             $filter->like('to_user.username', __('present::order.to_user_id'));
             $filter->equal('status', __('present::order.status.label'))->select(__('present::order.status.value'));
-            $filter->between('created_at', '送礼时间')->date();
+            $filter->between('created_at', __('admin.created_at'))->date();
         });
 
         $grid->column('id', __('present::order.id'));
